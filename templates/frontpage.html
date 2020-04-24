@@ -1,0 +1,537 @@
+﻿<html>
+    <head>
+        <title>
+            Hotel Recommendation System
+        </title>
+        <style type="text/css">
+            .banner {
+                height: 55vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-image: url(https://d1ha4q9jvugw4k.cloudfront.net/static/img/taj-mahal.jpg);
+    background-size:cover;
+    /* background-size:  100% 90%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-position-y: 0%; */
+    
+}
+
+.content{
+    height: 45vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+body{
+margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-width: 320px;
+    background: #fff;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    line-height: 1.4285em;
+    color: rgba(0,0,0,.87);
+    font-smoothing: antialiased;
+}
+.usp-container {
+    padding: 0 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.usp-column {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.usp-column .icon-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.sub-title.black {
+    color: #262626;
+}
+.sub-title.bolder {
+    font-weight: 700;
+}
+.sub-title {
+    font-size: 18px;
+    line-height: 22px;
+}
+.caption {
+    font-size: 14px;
+    color: #9b9b9b;
+}
+            </style>
+             <script>
+                    function checkforblank(){
+                    if (document.getElementById("city").value==""){
+                        alert("please enter the city")
+                        return false;
+                        }
+                    
+                    }
+                    
+                    </script>
+    </head>
+    <body>
+        <div style="border:solid darkblue 1px; height: 100%;">
+            <div class="banner" >
+                   <h1 style="text-align: center; margin-top:10%; color:white;">India’s Largest Hourly Hotels</h1>
+                   <div style="margin-top: 10%; height:80px; margin-bottom: -3%; width: 80%;margin-left: 10%;box-shadow: 0 20px 40px rgba(0,0,0,.15)!important;">
+                        <div style="height: 100%; width:100%; margin-left: 0%;">
+                            <form method="POST" onsubmit="return checkforblank()" enctype="multipart/form-data" style="height: 100%; width: 100%; margin-left: 0%;">
+                                    <!-- <input type="text" name="city" id="city">
+                                    <input type="submit" > -->
+                                    
+
+                                    <label>
+                                            <input list="Cities" name="mycity" id="mycity" placeholder="&#128269; Search for Cities" style="height: 100%; width:20%; margin-left: 0%; border-top-left-radius: 10px;
+                                            border-bottom-left-radius: 10px;"/>
+                                      </label>
+                                            <datalist id="Cities">
+                                            <option value='AGARTALA'>
+                                            <option value='AGRA'>
+                                            <option value='AHMEDABAD'>
+                                              <option value='AIZAWL'>
+                                        <option value='AJMER'>
+                                      <option value='ALLAHABAD'>
+                              <option value='ALLEPPEY'>
+                              <option value='ALIBAUG'>
+                              <option value='ALMORA'>
+                              <option value='ALSISAR'>
+                              <option value='ALWAR'>
+                              <option value='AMBALA'>
+                              <option value='AMLA'>
+                              <option value='AMRITSAR'>
+                              <option value='ANAND'>
+                              <option value='ANKLESHWAR'>
+                              <option value='ASHTAMUDI'>
+                              <option value='AULI'>
+                              <option value='AURANGABAD'>
+                              <option value='BADDI'>
+                              <option value='BADRINATH'>
+                              <option value='BALASINOR'>
+                              <option value='BALRAMPUR'>
+                              <option value='BAMBORA'>
+                              <option value='BANDHAVGARH'>
+                              <option value='BANDIPUR'>
+                              <option value='BANGALORE'>
+                              <option value='BARBIL'>
+                              <option value='BAREILLY'>
+                              <option value='BEHROR'>
+                              <option value='BELGAUM'>
+                              <option value='BERHAMPUR'>
+                              <option value='BETALGHAT'>
+                              <option value='BHARATPUR'>
+                              <option value='BHANDARDARA'>
+                              <option value='BHARUCH'>
+                              <option value='BHAVANGADH'>
+                              <option value='BHAVNAGAR'>
+                              <option value='BHILAI'>
+                              <option value='BHIMTAL'>
+                              <option value='BHOPAL'>
+                              <option value='BHUBANESHWAR'>
+                              <option value='BHUJ'>
+                              <option value='BIKANER'>
+                              <option value='BINSAR'>
+                              <option value='BODHGAYA'>
+                              <option value='BUNDI'>
+                              <option value='CALICUT'>
+                              <option value='CANANNORE'>
+                              <option value='CHAIL'>
+                              <option value='CHAMBA'>
+                              <option value='CHANDIGARH'>
+                              <option value='CHENNAI'>
+                              <option value='CHIKMAGALUR'>
+                              <option value='CHIPLUN'>
+                              <option value='CHITRAKOOT'>
+                              <option value='CHITTORGARH'>
+                              <option value='COIMBATORE'>
+                              <option value='COONOOR'>
+                              <option value='COORG'>
+                              <option value='CORBETT'>
+                              <option value='CUTTACK'>
+                              <option value='DABHOSA'>
+                              <option value='DALHOUSIE'>
+                              <option value='DAMAN'>
+                              <option value='DANDELI'>
+                              <option value='DAPOLI'>
+                              <option value='DARJEELING'>
+                              <option value='DAUSA'>
+                              <option value='DEHRADUN'>
+                              <option value='DHARAMSHALA'>
+                              <option value='DIBRUGARH'>
+                              <option value='DIGHA'>
+                              <option value='DIU'>
+                              <option value='DIVE'>
+                              <option value='DOOARS'>
+                              <option value='DURGAPUR'>
+                              <option value='DURSHET'>
+                              <option value='DWARKA'>
+                              <option value='FARIDABAD'>
+                              <option value='FIROZABAD'>
+                              <option value='GANGOTRI'>
+                              <option value='GANGTOK'>
+                              <option value='GANAPATIPULE'>
+                              <option value='GANDHIDHAM'>
+                              <option value='GANDHINAGAR'>
+                              <option value='GARHMUKTESHWAR'>
+                              <option value='GARHWAL'>
+                              <option value='GAYA'>
+                              <option value='GHAZIABAD'>
+                              <option value='GOA'>
+                              <option value='GOKHARNA'>
+                              <option value='GONDAL'>
+                              <option value='GORAKHPUR'>
+                              <option value='GREATER'>
+                              <option value='GULMARG'>
+                              <option value='GURGAON'>
+                              <option value='GURUVAYOOR'>
+                              <option value='GUWAHATI'>
+                              <option value='GWALIOR'>
+                              <option value='Top'>
+                              <option value='HALEBID'>
+                              <option value='HAMPI'>
+                              <option value='HANSI'>
+                              <option value='HARIDWAR'>
+                              <option value='HASSAN'>
+                              <option value='HOSPET'>
+                              <option value='HOSUR'>
+                              <option value='HUBLI'>
+                              <option value='HYDERABAD'>
+                              <option value='IDUKKI'>
+                              <option value='IGATPURI'>
+                              <option value='IMPHAL'>
+                              <option value='INDORE'>
+                              <option value='JABALPUR'>
+                              <option value='JAIPUR'>
+                              <option value='JAISALMER'>
+                              <option value='JALANDHAR'>
+                              <option value='JALGAON'>
+                              <option value='JAMBUGODHA'>
+                              <option value='JAMMU'>
+                              <option value='JAMNAGAR'>
+                              <option value='JAMSHEDPUR'>
+                              <option value='JAWHAR'>
+                              <option value='JHANSI'>
+                              <option value='JODHPUR'>
+                              <option value='JOJAWAR'>
+                              <option value='JORHAT'>
+                              <option value='JUNAGADH'>
+                              <option value='KABINI'>
+                              <option value='KALIMPONG'>
+                              <option value='KANATAL'>
+                              <option value='KANCHIPURAM'>
+                              <option value='KANHA'>
+                              <option value='KANPUR'>
+                              <option value='KANYAKUMARI'>
+                              <option value='KARGIL'>
+                              <option value='KARJAT'>
+                              <option value='KARNAL'>
+                              <option value='KARUR'>
+                              <option value='KARWAR'>
+                              <option value='KASARGOD'>
+                              <option value='KASAULI'>
+                              <option value='KASHIPUR'>
+                              <option value='KASHID'>
+                              <option value='KATRA'>
+                              <option value='KAUSANI'>
+                              <option value='KAZA'>
+                              <option value='KAZIRANGA'>
+                              <option value='KEDARNATH'>
+                              <option value='KHAJJIAR'>
+                              <option value='KHAJURAHO'>
+                              <option value='KHANDALA'>
+                              <option value='KHIMSAR'>
+                              <option value='KOCHIN'>
+                              <option value='KODAIKANAL'>
+                              <option value='KOLHAPUR'>
+                              <option value='KOLKATA'>
+                              <option value='KOLLAM'>
+                              <option value='KOTA'>
+                              <option value='KOTAGIRI'>
+                              <option value='KOTTAYAM'>
+                              <option value='KOVALAM'>
+                              <option value='KUFRI'>
+                              <option value='KUMBALGARH'>
+                              <option value='KULLU'>
+                              <option value='KUMARAKOM'>
+                              <option value='KUMBAKONAM'>
+                              <option value='KUMILY'>
+                              <option value='KURSEONG'>
+                              <option value='KUSHINAGAR'>
+                              <option value='LACHUNG'>
+                              <option value='LEH'>
+                              <option value='LAKSHADWEEP'>
+                              <option value='LONAVALA'>
+                              <option value='LOTHAL'>
+                              <option value='LUCKNOW'>
+                              <option value='LUDHIANA'>
+                              <option value='LUMBINI'>
+                              <option value='Top'>
+                              <option value='MADURAI'>
+                              <option value='MAHABALESHWAR'>
+                              <option value='MAHABALIPURAM'>
+                              <option value='MALAPPURAM'>
+                              <option value='MALPE'>
+                              <option value='MALSHEJ'>
+                              <option value='MALVAN'>
+                              <option value='MANALI'>
+                              <option value='MANDAVI'>
+                              <option value='MANDAWA'>
+                              <option value='MANESAR'>
+                              <option value='MARARRI'>
+                              <option value='MANDORMONI'>
+                              <option value='MANGALORE'>
+                              <option value='MANMAD'>
+                              <option value='MARCHULA'>
+                              <option value='MATHERAN'>
+                              <option value='MATHURA'>
+                              <option value='MCLEODGANJ'>
+                              <option value='MOHALI'>
+                              <option value='MOUNT'>
+                              <option value='MORADABAD'>
+                              <option value='MORBI'>
+                              <option value='MUKTESHWAR'>
+                              <option value='MUMBAI'>
+                              <option value='MUNDRA'>
+                              <option value='MUNNAR'>
+                              <option value='MURUD'>
+                              <option value='MUSSOORIE'>
+                              <option value='MYSORE'>
+                              <option value='NADUKANI'>
+                              <option value='NAGAPATTINAM'>
+                              <option value='NAGARHOLE'>
+                              <option value='NAGAUR'>
+                              <option value='NAGOTHANE'>
+                              <option value='NAGPUR'>
+                              <option value='NAHAN'>
+                              <option value='NAINITAL'>
+                              <option value='NALDHERA'>
+                              <option value='NANDED'>
+                              <option value='NAPNE'>
+                              <option value='NASIK'>
+                              <option value='NAVI'>
+                              <option value='NERAL'>
+                              <option value='NEW'>
+                              <option value='NILGIRI'>
+                              <option value='NOIDA'>
+                              <option value='OOTY'>
+                              <option value='ORCHHA'>
+                              <option value='OSIAN'>
+                              <option value='PACHMARHI'>
+                              <option value='PALAMPUR'>
+                              <option value='PALANPUR'>
+                              <option value='PALI'>
+                              <option value='PAHALGAM'>
+                              <option value='PALITANA'>
+                              <option value='PALLAKAD'>
+                              <option value='PANCHGANI'>
+                              <option value='PANCHKULA'>
+                              <option value='PANNA'>
+                              <option value='PANHALA'>
+                              <option value='PANVEL'>
+                              <option value='PANTNAGAR'>
+                              <option value='PARWANOO'>
+                              <option value='PATIALA'>
+                              <option value='PATHANKOT'>
+                              <option value='PATNA'>
+                              <option value='PATNITOP'>
+                              <option value='PELLING'>
+                              <option value='PENCH'>
+                              <option value='PHAGWARA'>
+                              <option value='PHALODI'>
+                              <option value='PINJORE'>
+                              <option value='PONDICHERRY'>
+                              <option value='POOVAR'>
+                              <option value='PORBANDAR'>
+                              <option value='PORT'>
+                              <option value='POSHINA'>
+                              <option value='PRAGPUR'>
+                              <option value='PUNE'>
+                              <option value='PURI'>
+                              <option value='PUSKHAR'>
+                              <option value='PUTTAPARTHI'>
+                              <option value='Top'>
+                              <option value='RAI'>
+                              <option value='RAICHAK'>
+                              <option value='RAIPUR'>
+                              <option value='RAJASTHAN'>
+                              <option value='RAJGIR'>
+                              <option value='RAJKOT'>
+                              <option value='RAJPIPLA'>
+                              <option value='RAJSAMAND'>
+                              <option value='RAJAHMUNDRY'>
+                              <option value='RAMESHWARAM'>
+                              <option value='RAM'>
+                              <option value='RAMGARH'>
+                              <option value='RANAKPUR'>
+                              <option value='RANCHI'>
+                              <option value='RANIKHET'>
+                              <option value='RANNY'>
+                              <option value='RANTHAMBORE'>
+                              <option value='RATNAGIRI'>
+                              <option value='RAVANGLA'>
+                              <option value='RISHIKESH'>
+                              <option value='RISHYAP'>
+                              <option value='ROHETGARH'>
+                              <option value='ROURKELA'>
+                              <option value='SAJAN'>
+                              <option value='SALEM'>
+                              <option value='SAPUTARA'>
+                              <option value='SASAN'>
+                              <option value='SATTAL'>
+                              <option value='SAWAI'>
+                              <option value='SAWANTWADI'>
+                              <option value='SECUNDERABAD'>
+                              <option value='SHILLONG'>
+                              <option value='SHIMLA'>
+                              <option value='SHIMLIPAL'>
+                              <option value='SHIRDI'>
+                              <option value='SHARAVANBELGOLA'>
+                              <option value='SHIVANASAMUDRA'>
+                              <option value='SIANA'>
+                              <option value='SILIGURI'>
+                              <option value='SILVASSA'>
+                              <option value='SIVAGANGA'>
+                              <option value='SOLAN'>
+                              <option value='SONAULI'>
+                              <option value='SRINAGAR'>
+                              <option value='SUNDERBAN'>
+                              <option value='SURAT'>
+                              <option value='TANJORE'>
+                              <option value='TAPOLA'>
+                              <option value='TARAPITH'>
+                              <option value='THANE'>
+                              <option value='THEKKADY'>
+                              <option value='THIRVANNAMALAI'>
+                              <option value='THIRUVANANTHAPURAM'>
+                              <option value='TIRUCHIRAPALLI'>
+                              <option value='TIRUPUR'>
+                              <option value='TIRUPATI'>
+                              <option value='THRISSUR'>
+                              <option value='UDAIPUR'>
+                              <option value='UDHAMPUR'>
+                              <option value='UDUPI'>
+                              <option value='UJJAIN'>
+                              <option value='UTTARKASHI'>
+                              <option value='VADODARA'>
+                              <option value='VAGAMON'>
+                              <option value='VARKALA'>
+                              <option value='VAPI'>
+                              <option value='VARANASI'>
+                              <option value='VELANKANNI'>
+                              <option value='VELLORE'>
+                              <option value='VERAVAL'>
+                              <option value='VIJAYAWADA'>
+                              <option value='VIKRAMGADH'>
+                              <option value='VISHAKAPATNAM'>
+                              <option value='WAYANAD'>
+                              <option value='WANKANER'>
+                              <option value='YAMUNOTRI'>
+                              <option value='YERCAUD'>
+                              <option value='YUKSOM'>
+                              
+                                  </datalist>
+                                
+                                
+                                  <input type="date" name="chin" style="height: 100%; width:20%; margin-left: -0.4%; margin-right: 0%; "></input>
+                                 
+                                
+                                    <input type="date" name="chout" placeholder="DD/MM/YY" style="height: 100%; width:20%; margin-left: -0.4%;  margin-right: 0%;"></input>
+                                    <input type="text" style="height: 100%; width:20%; margin-left: -0.4%;  margin-right: 0%;"></input>
+                                
+                                        <button style="height: 100%; width:20%; margin-left: -0.4%; background: linear-gradient(to right, #ff8300, #ff7100); border-top-right-radius: 10px;
+                                        border-bottom-right-radius: 10px;">SEARCH</button>
+                                    
+                               
+                                    </form>
+                                </div>
+                   </div>
+            </div>
+            <div class="content">
+                    <div class="usp-container">
+                            <div class="usp-column">
+                              <div class="icon-container">
+                                <img class="icon" src="https://d1ha4q9jvugw4k.cloudfront.net/static/img/credit-cards.svg">
+                              </div>
+                              <div class="usp-content">
+                                <div class="sub-title bolder black">SLOT PRICING</div>
+                                <div class="caption">Who pays for the unused room?</div>
+                              </div>
+                            </div>
+                            <div class="usp-column">
+                              <div class="icon-container">
+                                <img class="icon" src="https://d1ha4q9jvugw4k.cloudfront.net/static/img/best.svg" >
+                              </div>
+                              <div class="usp-content">
+                                <div class="sub-title bolder black">BEST HOTELS</div>
+                                <div class="caption">Our average rating on TripAdvisor is 4+</div>
+                              </div>
+                            </div>
+                            <div class="usp-column">
+                              <div class="icon-container">
+                                <img class="icon" src="https://d1ha4q9jvugw4k.cloudfront.net/static/img/speed.svg" >
+                              </div>
+                              <div class="usp-content">
+                                <div class="sub-title bolder black">FLEXIBLE STAY</div>
+                                <div class="caption">Check-in & Check-out of our hotels at your convenience</div>
+                              </div>
+                            </div>
+                            <div class="usp-column">
+                              <div class="icon-container">
+                                <img class="icon" src="https://d1ha4q9jvugw4k.cloudfront.net/static/img/hand.svg" >
+                              </div>
+                              <div class="usp-content">
+                                <div class="sub-title bolder black">PAY AT HOTEL</div>
+                                <div class="caption">Reserve your stay with a small amount and pay remaining at the hotel</div>
+                              </div>
+                            </div>
+                          </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
